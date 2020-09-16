@@ -1,11 +1,9 @@
-import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
+import { UserDetailsComponent } from '../user-details/user-details.component';
 import { Observable } from "rxjs";
-import { EmployeeService } from "../employee.service";
-import { Employee } from "../employee";
+import { UserService } from "../user.service";
+import { User } from "../user";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
-import { User } from '../user';
-import { UserService } from '../user.service';
 
 @Component({
   selector: "app-user-list",
@@ -23,12 +21,12 @@ export class UserListComponent implements OnInit {
   }
 
   reloadData() {
-    this.users = this.userService.getEmployeesList();
-    this.userService.getEmployeesList().subscribe(val => console.log(val))
+    this.users = this.userService.getUsersList();
+    this.userService.getUsersList().subscribe(val => console.log(val))
   }
 
-  deleteEmployee(id: number) {
-    this.userService.deleteEmployee(id)
+  deleteUser(id: number) {
+    this.userService.deleteUser(id)
       .subscribe(
         data => {
           console.log(data);
@@ -37,11 +35,11 @@ export class UserListComponent implements OnInit {
         error => console.log(error));
   }
 
-  employeeDetails(id: number){
+  userDetails(id: number){
     this.router.navigate(['details', id]);
   }
 
-  updateEmployee(id: number){
+  updateUser(id: number){
     this.router.navigate(['update', id]);
   }
 }

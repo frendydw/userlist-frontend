@@ -11,23 +11,23 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployee(id: number): Observable<any> {
+  getUser(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createEmployee(employee: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, employee);
+  createUser(user: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, user);
   }
 
-  updateEmployee(id: number, value: any): Observable<Object> {
+  updateUser(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteEmployee(id: number): Observable<any> {
+  deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getEmployeesList(): Observable<any> {
+  getUsersList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 }
