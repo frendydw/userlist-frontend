@@ -2,6 +2,7 @@ import { UserService } from '../user.service';
 import { User } from '../user';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-user',
@@ -9,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-
   user: User = new User();
   submitted = false;
+  roles =  ["admin", "user"];
+
 
   constructor(private userService: UserService,
     private router: Router) { }
